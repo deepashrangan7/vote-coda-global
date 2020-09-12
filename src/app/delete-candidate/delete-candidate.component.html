@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row" style="background-color: black; margin-bottom: 50px;">
+    <div class="col-sm-12">
+      <h3 style="color: white;">HackersPlatform</h3>
+      <span style="float: right;" class="text-light">
+        <button routerLink="/admin" class="btn btn-success">Home</button>
+      </span>
+    </div>
+  </div>
+  <h4>Candidates(Touch name to seedetails)</h4>
+
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let candidate of allCandidate">
+      <div (click)="val(candidate.id)" style="cursor: pointer;">
+        <h4>Name : {{ candidate.username | uppercase }}</h4>
+        <app-display-candidate
+          *ngIf="value"
+          [candidate]="candidate"
+          [delete]="true"
+          [id]="value"
+        ></app-display-candidate>
+      </div>
+    </li>
+  </ul>
+</div>

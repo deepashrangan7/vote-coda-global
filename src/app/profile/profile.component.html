@@ -1,0 +1,64 @@
+<div class="container col-sm-12">
+  <div class="row" style="background-color: black; margin-bottom: 50px;">
+    <div class="col-sm-12">
+      <h3 style="color: white;">HackersPlatform</h3>
+      <span style="float: right; margin-right: 10px;">
+        <a class="text-light" routerLink="/user">Home</a>
+      </span>
+    </div>
+  </div>
+  <h4 style="text-align: center; font-family: cursive; margin: 30px;">
+    Profile
+  </h4>
+  <app-display-candidate
+    [candidate]="candidate"
+    [id]="candidate.id"
+  ></app-display-candidate>
+  <div class="container">
+    <button (click)="show()" *ngIf="!showSkills" class="btn btn-success">
+      Show skills
+    </button>
+    <button (click)="show()" *ngIf="showSkills" class="btn btn-danger">
+      Hide skills
+    </button>
+    <span style="margin-left: 100px;" *ngIf="!editable">
+      <button (click)="edit(candidate.id)" class="btn btn-secondary">
+        Edit Profile
+      </button>
+    </span>
+    <span style="margin-left: 100px;" *ngIf="editable">
+      <button (click)="edit(candidate.id)" class="btn btn-danger">
+        Cancel edit
+      </button>
+    </span>
+    <span *ngIf="!addSkill" style="margin-left: 100px;">
+      <button (click)="addSkills(candidate.id)" class="btn btn-primary">
+        Add skills
+      </button>
+    </span>
+    <span *ngIf="addSkill" style="margin-left: 100px;">
+      <button (click)="addSkills(candidate.id)" class="btn btn-danger">
+        Cancel
+      </button>
+    </span>
+    <br />
+    <div class="row">
+      <div class="col-sm-10 offset-sm-1">
+        <app-editprofile *ngIf="editable" [candidate1]="candidate">
+        </app-editprofile>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-10 offset-sm-1">
+        <app-skills *ngIf="showSkills" [id]="candidate.id"> </app-skills>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-10 offset-sm-1">
+        <app-add-skills *ngIf="addSkill" [id]="candidate.id"> </app-add-skills>
+      </div>
+    </div>
+  </div>
+</div>

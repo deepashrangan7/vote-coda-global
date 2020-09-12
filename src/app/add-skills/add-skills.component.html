@@ -1,0 +1,49 @@
+<div style="margin-top: 30px;">
+  <form>
+    <div class="form-group">
+      <label for="course">Course</label>
+      <input
+        type="text"
+        class="form-control"
+        name="course"
+        #c="ngModel"
+        [(ngModel)]="skill.course"
+        id="course"
+        minlength="2"
+        required
+      /><span>min length 2</span>
+    </div>
+
+    <div class="alert alert-danger" *ngIf="r.touched && r.errors">
+      Course name is requied
+    </div>
+    <div class="form-group">
+      <label for="rating">Rating</label>
+      <input
+        type="number"
+        min="1"
+        max="5"
+        name="rating"
+        #r="ngModel"
+        [(ngModel)]="skill.rating"
+        class="form-control"
+        id="rating"
+        required
+      /><span>1 to 5</span>
+    </div>
+    <div class="alert alert-danger" *ngIf="r.touched && r.errors">
+      Rating must be 1 to 5
+    </div>
+    <button
+      type="submit"
+      class="btn btn-primary"
+      (click)="addSkill()"
+      *ngIf="!r.errors && !c.errors"
+    >
+      Add
+    </button>
+  </form>
+  <div class="alert alert-danger" *ngIf="msg">
+    {{ msg }}
+  </div>
+</div>

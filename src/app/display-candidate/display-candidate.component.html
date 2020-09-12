@@ -1,0 +1,53 @@
+<div class="container" *ngIf="candidate.id == id">
+  <table class="table">
+    <tbody>
+      <tr>
+        <th scope="row">Id</th>
+        <td>{{ candidate.id }}</td>
+      </tr>
+      <tr>
+        <th scope="row">Name:</th>
+        <td>{{ candidate.username }}</td>
+      </tr>
+      <tr>
+        <th scope="row">Email</th>
+        <td>{{ candidate.email }}</td>
+      </tr>
+
+      <tr>
+        <th scope="row">Level:</th>
+        <td>{{ candidate.experiseLevel }}</td>
+      </tr>
+
+      <tr>
+        <th scope="row">No of problmes solved :</th>
+        <td>{{ candidate.noOfChallengesSolved }}</td>
+      </tr>
+      <tr>
+        <th>Skills</th>
+        <td>
+          <div class="row">
+            <div class="col-sm-10 offset-sm-1">
+              <app-skills [id]="candidate.id"> </app-skills>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr></tr>
+    </tbody>
+  </table>
+  <div *ngIf="delete">
+    <button class="btn btn-danger" (click)="deleteCandidate()">Delete</button>
+  </div>
+
+  <div *ngIf="vote && !alreadyVoted">
+    <button class="btn btn-success" (click)="voteCandidate()">
+      Vote for {{ candidate.username }}
+    </button>
+  </div>
+  <div *ngIf="vote && alreadyVoted">
+    <button class="btn btn-warning" disabled="true">
+      You alreday casted your vote
+    </button>
+  </div>
+</div>

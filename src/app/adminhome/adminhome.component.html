@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row" style="background-color: black; margin-bottom: 50px;">
+    <div class="col-sm-12">
+      <h3 style="color: white;">HackersPlatform</h3>
+      <span style="float: right;" class="text-light">
+        <button (click)="logout()" class="btn btn-danger">Logout</button>
+      </span>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 50px;" style="background-color: wheat;">
+    <div class="col-sm-6 offset-sm-3">
+      <h5 style="margin-left: 60px; margin-bottom: 20px; margin-top: 50px;">
+        Choose One
+      </h5>
+      <div style="margin-top: 50px; margin-bottom: 20px; margin-left: 50px;">
+        <button class="btn btn-outline-primary btn-lg" (click)="addCandidate()">
+          Add a Candidate
+        </button>
+      </div>
+      <br />
+      <div style="margin-left: 50px; margin-bottom: 20px;">
+        <button
+          class="btn btn-outline-primary btn-lg"
+          (click)="deleteCandidate()"
+        >
+          Delete a candidate
+        </button>
+      </div>
+      <br />
+      <div style="margin-left: 50px; margin-bottom: 20px;">
+        <button class="btn btn-outline-primary btn-lg" (click)="vote()">
+          Cast your vote
+        </button>
+      </div>
+      <br />
+      <div style="margin-left: 50px; margin-bottom: 20px;">
+        <button class="btn btn-outline-primary btn-lg" routerLink="/votes">
+          See vote count</button
+        ><span style="margin-left: 10px; color: red;"
+          ><small>only you (admin) can view</small></span
+        >
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,109 @@
+<div class="container">
+  <div class="row" style="background-color: black; margin-bottom: 50px;">
+    <div class="col-sm-12">
+      <h3 style="color: white;">HackersPlatform</h3>
+      <span style="float: right;" class="text-light">
+        <button routerLink="/admin" class="btn btn-success">Home</button>
+      </span>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 50px;" style="background-color: wheat;">
+    <div class="col-sm-6 offset-sm-3">
+      <div style="margin: 50px;">
+        <div class="form-group">
+          <label for="email">Email address</label>
+
+          <input
+            type="email"
+            name="emailId"
+            #ema="ngModel"
+            id="email"
+            [(ngModel)]="candidate.email"
+            class="form-control"
+          />
+        </div>
+      </div>
+
+      <div style="margin-left: 50px; margin-bottom: 20px;">
+        <div class="form-group">
+          <label for="password">Password</label>
+
+          <input
+            type="password"
+            name="password"
+            #ema="ngModel"
+            id="password"
+            [(ngModel)]="candidate.password"
+            class="form-control"
+            minlength="3"
+          /><span>Min length 3</span>
+        </div>
+      </div>
+
+      <div style="margin-left: 50px; margin-bottom: 20px;">
+        <div class="form-group">
+          <label for="name">Username</label>
+
+          <input
+            type="text"
+            name="name"
+            #ema="ngModel"
+            id="name"
+            minlength="2"
+            [(ngModel)]="candidate.username"
+            class="form-control"
+          /><span>Min length 2</span>
+        </div>
+      </div>
+
+      <div style="margin-left: 50px; margin-bottom: 20px;">
+        <div class="form-group">
+          <label for="level">Expertise level</label>
+
+          <input
+            type="number"
+            min="1"
+            max="5"
+            name="level"
+            #ema="ngModel"
+            id="level"
+            [(ngModel)]="candidate.experiseLevel"
+            class="form-control"
+          /><span>1 to 5</span>
+        </div>
+      </div>
+
+      <div style="margin-left: 50px; margin-bottom: 20px;">
+        <div class="form-group">
+          <label for="level">No of Problems solved</label>
+
+          <input
+            type="number"
+            min="0"
+            name="solved"
+            #ema="ngModel"
+            id="solved"
+            [(ngModel)]="candidate.noOfChallengesSolved"
+            class="form-control"
+          /><span>not less than 0</span>
+        </div>
+      </div>
+      <div style="margin-left: 50px; margin-bottom: 20px; margin-top: 40px;">
+        <button (click)="add()" class="btn btn-success" *ngIf="!loading">
+          Add candidate
+        </button>
+        <span style="margin-left: 20px;" *ngIf="loading"
+          >Adding candidate Please wait.....
+        </span>
+      </div>
+
+      <div
+        style="margin-left: 50px; margin-bottom: 20px; margin-top: 40px;"
+        class="alert alert-danger"
+        *ngIf="msg"
+      >
+        {{ msg }}
+      </div>
+    </div>
+  </div>
+</div>
